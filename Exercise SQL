@@ -1,1 +1,70 @@
-Pantallazos 
+'prueba puesta en marcha bbdd DVD rentals en PGadmin'
+select * from public.actor
+
+'ej. 1'
+
+select first_name, last_name from public.actor
+
+'ej. 2'
+
+SELECT B.title, C.first_name FROM public.film_actor A  
+FULL OUTER JOIN public.film B ON A.film_id = B.film_id
+FULL OUTER JOIN public.actor C ON A.actor_id = C.actor_id;
+
+
+'ej. 3'
+
+SELECT A.first_name, COUNT(B.film_id) AS "Number of Films"
+FROM
+public.actor AS A
+INNER JOIN
+public.film_actor AS B
+ON A.actor_id = B.actor_id
+GROUP BY A.first_name ORDER BY "Number of Films" DESC;
+
+
+'Ej 4 ↓'
+
+SELECT A.title, COUNT(C.inventory_id) AS "n_rentals"
+FROM public.film as A
+inner join
+public.rental as C
+on A.film_id = C.inventory_id
+group by A.title order by "n_rentals" DESC;
+
+
+'Ej. 5. Ordenado por título '
+
+select A.title, sum(coalesce(B.amount, 0))
+from public.film as A
+join public.rental as C on c.inventory_id = a.film_id
+join public.payment as B on b.rental_id=c.rental_id
+group by A.title
+order by A.title asc;
+
+'Ej. 5 opción B. ordenado por recaudación'
+select A.title, sum(coalesce(B.amount, 0))
+from public.film as A
+join public.rental as C on c.inventory_id = a.film_id
+join public.payment as B on b.rental_id=c.rental_id
+group by A.title
+order by SUM DESC;
+ 
+'ej.6'
+select A.first_name, A.last_name, sum(coalesce(B.amount, 0))
+from public.customer as A
+join
+public.payment as B
+on A.customer_id = B.customer_id
+group by A.first_name, A.last_name
+order by SUM desc limit 1;
+
+'ej.7'
+
+select A.first_name, A.last_name, COUNT(B.amount) AS "n_rentals"
+from public.customer as A
+join
+public.payment as B
+on A.customer_id = B.customer_id
+group by A.first_name, A.last_name
+order by n_rentals desc limit 1; 
