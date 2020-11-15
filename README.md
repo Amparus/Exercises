@@ -7,4 +7,6 @@ generada en http://localhost:5050/browser/
 
 Descripción de tablas: https://www.postgresqltutorial.com/postgresql-sample-database/
 
-Subidos a mi github los pantallazos como prueba de la réplica del ejercicio de Pedro. Copio pantallazos de las consultas realizadas y fichero sql .
+Cargadas, en ejercicio SQL, las consultas realizadas siguiendo indicaciones de Pedro
+
+Subidos archivos con consulta en formato XML, WORD y txt
