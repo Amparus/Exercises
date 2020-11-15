@@ -7,6 +7,6 @@ generada en http://localhost:5050/browser/
 
 Descripción de tablas: https://www.postgresqltutorial.com/postgresql-sample-database/
 
-Cargadas, en ejercicio SQL, las consultas realizadas siguiendo indicaciones de Pedro
+Cargadas, en Exercise SQL, las consultas realizadas siguiendo indicaciones de Pedro
 
 Subidos archivos con consulta en formato XML, WORD y txt
